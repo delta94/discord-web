@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useSelector } from 'react-redux';
 import Chat from '../components/Chat';
+import Login from '../components/Login';
 import Sidebar from '../components/Sidebar';
 import { initialState } from '../core/redux/store';
 import { selectUser } from '../core/redux/store/user';
@@ -16,7 +17,7 @@ export default function Home() {
           <Chat />
         </>
       ) : (
-        <h2>You need to login</h2>
+        <Login />
       )}
 
     </div>
