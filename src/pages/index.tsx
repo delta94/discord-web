@@ -1,9 +1,10 @@
 import Head from 'next/head'
+import Sidebar from '../components/Sidebar'
 
 export default function Home() {
   return (
-    <div>
-      Hello World
+    <div className="home">
+      <Sidebar />
     </div>
   )
 }
