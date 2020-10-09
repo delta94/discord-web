@@ -3,7 +3,13 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import AddIcon from '@material-ui/icons/Add';
 import SignalCellularAltIcon from '@material-ui/icons/SignalCellularAlt';
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import CallIcon from '@material-ui/icons/Call';
+import MicIcon from '@material-ui/icons/Mic';
+import HeadsetIcon from '@material-ui/icons/Headset';
+import SettingsIcon from '@material-ui/icons/Settings';
 
+import { Avatar } from '@material-ui/core';
 import styles from './Sidebar.module.css';
 import SidebarChannel from '../SidebarChannel';
 
@@ -18,7 +24,7 @@ const Sidebar = () => (
       <div className={styles.sidebar__channelsHeader}>
         <div className={styles.sidebar__header}>
           <ExpandMoreIcon />
-          <h4>Text Channels</h4>
+          <h4>Canais</h4>
         </div>
 
         <AddIcon className={styles.sidebar__addChannel} />
@@ -35,6 +41,30 @@ const Sidebar = () => (
         className={styles.sidebar__voiceIcon}
         fontSize="large"
       />
+
+      <div className={styles.sidebar__voiceInfo}>
+        <h3>Voz conectada</h3>
+        <p>Stream</p>
+      </div>
+
+      <div className={styles.sidebar__voiceIcons}>
+        <InfoOutlinedIcon />
+        <CallIcon />
+      </div>
+    </div>
+
+    <div className={styles.sidebar__profile}>
+      <Avatar src="https://i.imgur.com/I80W1Q0.png" />
+      <div className={styles.sidebar__profileInfo}>
+        <h3>@vbeloti</h3>
+        <p>#vBeloti</p>
+      </div>
+
+      <div className={styles.sidebar__profileIcons}>
+        <MicIcon />
+        <HeadsetIcon />
+        <SettingsIcon />
+      </div>
     </div>
   </div>
 );
