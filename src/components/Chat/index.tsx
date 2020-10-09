@@ -14,6 +14,8 @@ const Chat = () => (
 
     <div className={styles.chat__messages}>
       <Message />
+      <Message />
+      <Message />
     </div>
 
     <div className={styles.chat__input}>
