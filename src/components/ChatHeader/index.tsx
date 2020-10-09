@@ -20,6 +20,10 @@ const ChatHeader = () => (
       <NotificationsIcon />
       <EditLocationRoundedIcon />
       <PeopleAltRoundedIcon />
+
+      <div className={styles.chatHeader__search}>
+        <input placeholder="Buscar" />
+      </div>
     </div>
   </div>
 );
