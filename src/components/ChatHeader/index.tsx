@@ -8,12 +8,16 @@ import HelpRoundedIcon from '@material-ui/icons/HelpRounded';
 
 import styles from './ChatHeader.module.css';
 
-const ChatHeader = () => (
+type ChatHeaderProps = {
+    channelName: string;
+}
+
+const ChatHeader = ({ channelName }: ChatHeaderProps) => (
   <div className={styles.chatHeader}>
     <div className={styles.chatHeader__left}>
       <h3>
         <span className={styles.chatHeader__hash}>#</span>
-        Nome do Canal
+        {channelName}
       </h3>
     </div>
 

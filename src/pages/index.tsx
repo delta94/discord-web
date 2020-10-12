@@ -1,11 +1,9 @@
 import Head from 'next/head';
 import { useSelector } from 'react-redux';
 import Chat from '../components/Chat';
-// import Login from '../components/Login';
-import Login from './login';
+import Login from '../components/Login';
 import Sidebar from '../components/Sidebar';
 import { initialState } from '../core/redux/store';
-import { selectUser } from '../core/redux/store/user';
 
 export default function Home() {
   const user = useSelector((state: typeof initialState) => state.user);
@@ -13,16 +11,14 @@ export default function Home() {
   return (
     <div className="home">
 
-      <Login />
-
-      {/* {user ? (
+      {user ? (
         <>
           <Sidebar />
           <Chat />
         </>
       ) : (
         <Login />
-      )} */}
+      )}
 
     </div>
   );

@@ -5,31 +5,15 @@ import 'firebase/database';
 import 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyB6yUOtTx1k0bvMiIP77-RyskrLUNWXDz8',
-  authDomain: 'discord-web-e2888.firebaseapp.com',
-  databaseURL: 'https://discord-web-e2888.firebaseio.com',
-  projectId: 'discord-web-e2888',
-  storageBucket: 'discord-web-e2888.appspot.com',
-  messagingSenderId: '900798198425',
-  appId: '1:900798198425:web:32c8cbfe3e551fd50efe08',
-  measurementId: 'G-RTWZYL7M9E',
+  apiKey: process.env.NEXT_PUBLIC_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
+  databaseURL: process.env.NEXT_PUBLIC_DATABASE_URL,
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
 };
-
-// let app;
-// let db;
-// let auth;
-// let provider;
-
-// const app = firebase.initializeApp(firebaseConfig);
-// const db = app.firestore();
-// const auth = firebase.auth();
-// const provider = new firebase.auth.GoogleAuthProvider();
-
-// export { auth, provider };
-// export default db;
-
-// const app = firebase.initializeApp(firebaseConfig);
-// const db = app.firestore();
 export default !firebase.apps.length
   ? firebase.initializeApp(firebaseConfig).firestore()
   : firebase.app().firestore();
@@ -38,9 +22,3 @@ const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
 export { auth, provider };
-
-// export default !firebase.apps.length
-//   ? firebase.initializeApp(firebaseConfig).firestore()
-//   : firebase.app().firestore();
-
-// const app = firebase.initializeApp();

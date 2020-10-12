@@ -1,10 +1,3 @@
-// import { createStore, applyMiddleware } from 'redux';
-// import { composeWithDevTools } from 'redux-devtools-extension';
-
-// const store = createStore(user, app, composeWithDevTools(applyMiddleware()));
-
-// export default store;
-
 import { useMemo } from 'react';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -15,8 +8,10 @@ let store;
 
 export const initialState = {
   user: null,
-  channelId: null,
-  channelName: null,
+  channel: {
+    channelId: null,
+    channelName: null,
+  },
 };
 
 const reducer = (state = initialState, action) => {
@@ -26,7 +21,7 @@ const reducer = (state = initialState, action) => {
     case 'LOGOUT':
       return { ...state, user: null };
     case 'SET_CHANNEL_ID':
-      return { ...state, app: action.payload };
+      return { ...state, channel: action.payload };
     default:
       return state;
   }

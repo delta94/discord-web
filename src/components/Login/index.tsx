@@ -6,35 +6,36 @@ import { initialState } from '../../core/redux/store';
 
 import styles from './Login.module.css';
 
-const Login = (props) => {
-  console.log(props);
-  // const dispatch = useDispatch();
+const Login = () => {
+  const dispatch = useDispatch();
 
-  // const handleSignIn = (
-  //   event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-  // ) => {
-  //   event.preventDefault();
+  const handleSignIn = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => {
+    event.preventDefault();
 
-  // auth.signInWithPopup(provider).catch((error) => alert(error.message));
-  // };
+    auth.signInWithPopup(provider).catch((error) => alert(error.message));
+  };
 
-  // useEffect(() => {
-  //   auth.onAuthStateChanged((authUser) => {
-  //     if (authUser) {
-  //       dispatch({
-  //         type: 'LOGIN',
-  //         payload: {
-  //           uid: authUser.uid,
-  //           photo: authUser.photoURL,
-  //           email: authUser.email,
-  //           displayName: authUser.displayName,
-  //         },
-  //       });
-  //     } else {
-  //       throw new Error('Error ao buscar');
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        dispatch({
+          type: 'LOGIN',
+          payload: {
+            uid: authUser.uid,
+            photo: authUser.photoURL,
+            email: authUser.email,
+            displayName: authUser.displayName,
+          },
+        });
+      } else {
+        dispatch({
+          type: 'LOGOUT',
+        });
+      }
+    });
+  }, [dispatch]);
 
   return (
     <div className={styles.login}>
@@ -45,19 +46,9 @@ const Login = (props) => {
         />
       </div>
 
-      {/* <Button onClick={handleSignIn}>Sign In</Button> */}
+      <Button onClick={handleSignIn}>Sign In</Button>
     </div>
   );
 };
 
 export default Login;
-
-export async function getStaticProps() {
-  // const user = useSelector((state: typeof initialState) => state.user);
-
-  const res = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-  const data = await res.json();
-
-  // Pass data to the page via props
-  return { props: { data } };
-}
